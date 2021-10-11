@@ -1,5 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": false
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -66,11 +69,14 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
-          "configurations": {
+          "configurations": { 
             "production": {
               "browserTarget": "client:build:production"
             },
             "development": {
+              "sslCert":"./ssl/server.crt",
+              "sslKey":"./ssl/server.key",
+              "ssl":true,
               "browserTarget": "client:build:development"
             }
           },
